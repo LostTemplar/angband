@@ -339,7 +339,7 @@ static size_t obj_desc_name(char *buf, size_t max, size_t end,
 		strnfcat(buf, max, &end, " %s", o_ptr->ego->name);
 
 	else if (aware && !o_ptr->artifact &&
-			(o_ptr->kind->flavor || o_ptr->kind->tval == TV_SCROLL)) {
+		 tval_can_have_flavor_k(o_ptr->kind)) {
 		if (terse)
 			strnfcat(buf, max, &end, " '%s'", o_ptr->kind->name);
 		else
